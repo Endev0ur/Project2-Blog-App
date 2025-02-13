@@ -47,6 +47,8 @@ const Signup = () => {
       setTimeout(() => {
         navigateTo('/login');
       },2000);
+    }else{
+      alert(message);
     }
 
   }

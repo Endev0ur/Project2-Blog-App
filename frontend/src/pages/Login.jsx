@@ -46,6 +46,8 @@ const Login = () => {
       setTimeout(() => {
         navigateTo("/home");
       },2000);
+    }else{
+      alert(message);
     }
 
   }
