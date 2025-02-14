@@ -71,7 +71,7 @@ const Signup = () => {
 
       <div className="bg-amber-500 w-[100%] h-12 flex justify-center items-center mb-4 mt-5 rounded-2xl bg-gradient-to-b from-violet-100 to-violet-400 shadow-lg shadow-violet-900 ">
         <input
-          type="text"
+          type="email"
           placeholder="Enter the email"
           name="email"
           autoComplete="off"
