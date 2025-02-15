@@ -8,7 +8,7 @@ const NavBar = () => {
       <span className='mr-[40%] text-3xl font-bold'>Logo</span>
       
       <div className={`hidden xl:flex justify-between items-center w-[30%] bg-blue-500 text-xl font-bold`}>
-      <Link>Home</Link>
+      <Link to={'/home'}>Home</Link>
       <Link>About</Link>
       <Link>Blogs</Link>
       <Link>MyBlogs</Link>
