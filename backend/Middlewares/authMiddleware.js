@@ -2,20 +2,19 @@ const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
   try {
-    let token = req.header('Authorization'); // ✅ Get token from headers
+    let token = req.header('Authorization'); 
 
     if (!token) {
       return res.status(401).json({ message: "Unauthorized - No token provided", success: false });
     }
 
-    // ✅ Handle both "Bearer <TOKEN>" and "<TOKEN>" formats
     if (token.startsWith("Bearer ")) {
-      token = token.split(" ")[1]; // Remove "Bearer " prefix
+      token = token.split(" ")[1]; 
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    req.user = decoded; // ✅ Attach user data to request
+    req.user = decoded;
     next();
   } catch (error) {
     res.status(401).json({ message: "Invalid Token", success: false });

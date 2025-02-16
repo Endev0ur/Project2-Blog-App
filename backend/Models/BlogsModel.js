@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const blogSchema = new mongoose.Schema({
-  image : {
-    //multer used or firebase for image upload
-    type:String,
-    required:true,
-  },
-  name:{
+  // image : {
+  //   //multer used or firebase for image upload
+  //   type:String,
+  //   required:true,
+  // },
+  topic:{
     type:String,
     required:true,
   },
@@ -18,11 +18,11 @@ const blogSchema = new mongoose.Schema({
     type:String,
     required:true,
   },
-  userId: { 
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: "user",
-    required: true 
-  },
+  // userId: { 
+  //   type: mongoose.Schema.Types.ObjectId, 
+  //   ref: "user",
+  //   required: true 
+  // },
   username: { 
     type: String, 
     required: true 
@@ -33,7 +33,7 @@ const blogSchema = new mongoose.Schema({
   },
   dislikeCount:{
     type:Number,
-    deafult:0,
+    default:0,
   },
 
 } , {timestamps:true})
