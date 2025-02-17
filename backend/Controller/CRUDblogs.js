@@ -33,6 +33,19 @@ const createBlog = async (req , res) => {
 }
 
 
+const getAllBlog = async (req , res) => {
+  try{
+    const Blogs = await blogsModel.find();
+    res.status(201).json({
+      Blogs,
+    })
+  }catch(err){
+    res.status(404).json({
+      message : "error in catch",
+    })
+  }
+}
 
 
-module.exports = {createBlog};
+
+module.exports = {createBlog , getAllBlog};

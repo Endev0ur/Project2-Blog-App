@@ -4,7 +4,6 @@ const cors = require('cors')
 require('./Models/DbC');
 const authRouter = require('./Routes/authRouter');
 const blogRouter = require("./Routes/blogRouter");
-const authMiddleware = require("./Middlewares/authMiddleware")
 
 const app = express();
 const port = process.env.PORT||3000;
@@ -17,7 +16,7 @@ app.get('/' , (req ,res)=>{
 
 app.use(cors());
 app.use("/auth" , authRouter);
-app.use("/home" , authMiddleware , blogRouter);
+app.use("/home" , blogRouter);
 
 
 app.listen(port , (req , res)=>{

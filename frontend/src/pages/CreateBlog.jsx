@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const CreateBlog = () => {
+
+  const navigateTo = useNavigate();
 
 
   let [createBlog , setCreateBlog] = useState({
@@ -41,6 +44,12 @@ const CreateBlog = () => {
     console.log(response);
     const result = await response.json();
     console.log(result);
+
+    const {messsage , success} = result;
+    if(success){
+      alert("Blog Created Successfully");
+      navigateTo("/home");
+    }
   }
 
 
