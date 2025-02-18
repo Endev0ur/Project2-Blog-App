@@ -21,6 +21,14 @@ const signup = async (req , res) => {
         success : false,
       })
     }
+    
+    const namepresent = await userModel.findOne({name});
+    if(namepresent){
+      return res.status(401).json({
+        message : "Name is not unique",
+        success : false,
+      })
+    }
     else{
       const newpassword = await bcrypt.hash(password, 10);
       const newUser = new userModel({name , email , password:newpassword});

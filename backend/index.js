@@ -14,7 +14,7 @@ app.get('/' , (req ,res)=>{
   res.send("hello wolrd");
 })
 
-app.use(cors());
+app.use(cors({ origin: "*", credentials: true }));
 app.use("/auth" , authRouter);
 app.use("/home" , blogRouter);
 

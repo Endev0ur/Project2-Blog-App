@@ -14,7 +14,7 @@ const BlogTemplate = ({blog}) => {
 
 
   return (
-    <div className='h-[45%] w-[30%] bg-amber-500 mt-10 m-5 rounded-2xl flex justify-around items-center flex-wrap border-3'>
+    <div className='lg:h-[50%] lg:w-[45%]   2xl:h-[50%] 2xl:w-[30%] bg-amber-500 mt-10 m-5 2xl:m-3 rounded-2xl flex justify-around items-center flex-wrap border-3'>
       <div className='h-[50%] w-[90%] bg-gray-500 rounded-2xl flex justify-center items-center'>image area</div>
         <div className=' h-[40%] w-[90%] flex  items-center flex-wrap'>
           <p className='text-2xl w-[100%] font-bold'>{blog.topic}</p>
