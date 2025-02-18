@@ -80,7 +80,7 @@ const CreateBlog = () => {
           value={createBlog.category}
           >
               <option value="Choose a category">Choose a category : </option>
-              <option value="Movie">Movie</option>
+              <option value="Movies">Movies</option>
               <option value="Games">Games</option>
               <option value="Sports">Sports</option>
               <option value="Travel">Travel</option>

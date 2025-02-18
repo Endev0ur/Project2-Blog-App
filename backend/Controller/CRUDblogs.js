@@ -9,20 +9,22 @@ const createBlog = async (req , res) => {
     // const userId = req.user._id;
     const username = req.user.name;
 
-    if(/*!image || */!topic || !category || !content){
+    if(/*!image || */!topic || category==="Choose a category" || !category || !content){
       return res.status(401).json({
         message : "All Fields are Mandatory !",
         success : false,
       })
+    }else{
+      const createNewBlog = await blogsModel({
+        /*image , */topic , category , content , /*userId ,*/ username
+      });
+      await createNewBlog.save();
+      return res.status(201).json({
+        message : "Blog Created Successfully",
+        success : true,
+      })
     }
-    const createNewBlog = await blogsModel({
-      /*image , */topic , category , content , /*userId ,*/ username
-    });
-    await createNewBlog.save();
-    return res.status(201).json({
-      message : "Blog Created Successfully",
-      success : true,
-    })
+    
   }catch(err){
     return res.status(401).json({
       message : "Error occur in Catch",
