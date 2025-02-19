@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../App.css";
 import LeftBar from "./LeftBar";
 import { FaPlus } from "react-icons/fa";
+import Footer from "./Footer";
 
 import BlogTemplate from "./BlogTemplate";
 import NoBlogs from "./NoBlogs";
@@ -44,7 +45,7 @@ const Content = () => {
   console.log(catfilter.length);
 
   return (
-    <div className="h-[100%] w-[100%] bg-green-300 flex items-center justify-center">
+    <div className="h-[100%] w-[100%] bg-green-300 flex items-center justify-center flex-wrap">
       <div className="hidden lg:flex h-[99%] w-[20%] bg-blue-700 flex-wrap justify-center items-center ">
         <LeftBar catfilter={catfilter} setCatFilter={setCatFilter}></LeftBar>
       </div>
@@ -82,6 +83,8 @@ const Content = () => {
       >
         <FaPlus className="text-5xl text-white" />
       </button>
+
+      <div className="h-[40%] w-[100%] bg-red-500"><Footer></Footer></div>
     </div>
   );
 };
