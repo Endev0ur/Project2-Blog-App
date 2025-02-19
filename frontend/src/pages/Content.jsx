@@ -49,7 +49,6 @@ const Content = () => {
         <LeftBar catfilter={catfilter} setCatFilter={setCatFilter}></LeftBar>
       </div>
       <div className="h-[99%] w-[99%] lg:w-[80%] xl:w-[65%] bg-pink-400 flex flex-wrap justify-items-center overflow-y-scroll scrollbar-hide relative">
-      <button className="h-[100px] w-[100px] bg-black fixed bottom-0 right-0 mb-[4%] mr-[20%] flex justify-center items-center rounded-[50%] border-4 cursor-pointer "blue-500 onClick={handleCreateShortcut}><FaPlus className="text-5xl text-white" /></button>
         {catfilter.length===0 ? (AllBlogs.length != 0 ? (
           AllBlogs.map((blog) => {
             return <BlogTemplate blog={blog} />;
@@ -77,6 +76,12 @@ const Content = () => {
           <NoBlogs />
         )}
       </div>
+      <button
+        className="h-[100px] w-[100px] bg-black absolute bottom-[10%] right-[20%] flex justify-center items-center rounded-full border-4 cursor-pointer shadow-lg"
+        onClick={handleCreateShortcut}
+      >
+        <FaPlus className="text-5xl text-white" />
+      </button>
     </div>
   );
 };
