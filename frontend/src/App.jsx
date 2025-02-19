@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import {Routes , Route, Navigate} from "react-router-dom"
 import Home from './pages/Home'
 import CreateBlog from './pages/CreateBlog'
+import ReadBlog from './pages/ReadBlog'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/home' element={<Home />}></Route>
         <Route path='/create' element={<CreateBlog />}></Route>
+        <Route path='/readme' element={<ReadBlog />}></Route>
       </Routes>
     </div>
   )
