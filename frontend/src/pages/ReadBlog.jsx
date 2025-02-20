@@ -1,8 +1,10 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 
 const ReadBlog = () => {
+
+  const navigateTo = useNavigate();
 
   const location = useLocation();
   const data = location.state || {};
@@ -11,6 +13,32 @@ const ReadBlog = () => {
   console.log("hello" , loggedInUser);
 
   console.log(data);
+
+  const handleDeleteBlog = async() => {
+    const id = data._id;
+    console.log(id);
+
+    let url = `http://localhost:3000/home/delete/${id}`;
+    const response = await fetch(url , {
+      method : "DELETE",
+    });
+
+    console.log(response);
+    const result = await response.json();
+    console.log(result);
+
+    const {success} = result;
+    if(success){
+      alert("Blog Deleted Successfully");
+      navigateTo("/home");
+    }
+
+  }
+
+
+  const handleUpdateBlog = () => {
+    navigateTo('/update' , {state : data});
+  }
 
   return (
     <div className='h-full lg:h-[100%] w-[98%] bg-amber-300 flex flex-col wrap'>
@@ -31,8 +59,8 @@ const ReadBlog = () => {
           <p className='text-xl font-bold'>category : {data.category}</p>
           {loggedInUser===data.username && 
           <div className='h-[15%] w-[90%] bg-amber-300 mt-10 flex justify-around items-center'>
-            <button className='h-[80%] w-[40%] bg-blue-500 rounded-2xl border-3 font-bold'>Update</button>
-            <button className='h-[80%] w-[40%] bg-red-500 rounded-2xl border-3 font-bold'>Delete</button>
+            <button className='h-[80%] w-[40%] bg-blue-500 rounded-2xl border-3 font-bold' onClick={handleUpdateBlog}>Update</button>
+            <button className='h-[80%] w-[40%] bg-red-500 rounded-2xl border-3 font-bold cursor-pointer' onClick={handleDeleteBlog}>Delete</button>
           </div>
          }
         </div>

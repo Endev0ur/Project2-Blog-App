@@ -49,5 +49,52 @@ const getAllBlog = async (req , res) => {
 }
 
 
+const deleteBlog = async (req , res) => {
+  try{const {id} = req.params;
+  const deleteblog = await blogsModel.findByIdAndDelete(id);
+  if(!deleteblog){
+    return res.status(401).json({
+      message : "Some error occurred try again !",
+      success : false,
+    })
+  }else{
+    return res.status(200).json({
+      message : "blog deleted successfully",
+      success : true,
+    })
+  }}
+  catch(err){
+    res.status(401).json({
+      message : "error occurred in catch",
+      success:false,
+    })
+  }
+}
 
-module.exports = {createBlog , getAllBlog};
+const updateBlog = async (req , res) => {
+  try{
+    const {id} = req.params;
+    const updateblog = await blogsModel.findByIdAndUpdate(id , req.body, { new: true });
+
+    if(!updateblog){
+      res.status(401).json({
+        message : "blog not found",
+        success :false,
+      })
+    }
+    return res.status(200).json({
+      message : "Blog Update successfully",
+      success : true,
+    })
+  }catch(err){
+    res.status(500).json({
+      message :  "error occur in catch",
+      success : false,
+    })
+  }
+
+}
+
+
+
+module.exports = {createBlog , getAllBlog , deleteBlog , updateBlog};
