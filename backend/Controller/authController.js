@@ -93,4 +93,25 @@ const login = async (req, res) => {
 }
 
 
-module.exports = {signup , login};
+const getUser = async (req , res) => {
+  try{
+      const {name} = req.params;
+    const user = await userModel.findOne({name});
+    if(user){
+      res.status(201).json({
+        message : "user found successfully",
+        user,
+        success : true,
+      })
+    }
+  }catch(err){
+    res.status(500).json({
+      message : "internal server error",
+      err,
+      success : false,
+    })
+  }
+}
+
+
+module.exports = {signup , login , getUser};

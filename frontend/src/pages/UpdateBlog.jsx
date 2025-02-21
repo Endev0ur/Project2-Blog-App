@@ -93,7 +93,7 @@ const UpdateBlog = () => {
         <div className='h-[50%] bg-pink-400 p-2 mb-6'>
           <textarea 
           name="content" 
-          className='h-[100%] w-[100%] p-4 text-xl outline-none border-4 border-black rounded-3xl resize-none' placeholder='Enter you Blog Description Here : '
+          className='h-[100%] w-[100%] p-4 text-xl outline-none border-4 border-black rounded-3xl resize-none overflwo-y-scroll scrollbar-hide' placeholder='Enter you Blog Description Here : '
           onChange={handleChange}
           value={updateBlog.content}
           ></textarea>

@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const RecentTemplate = ({blog}) => {
+
+  const navigateTo = useNavigate();
 
   const handleReadmebtn = () => {
     navigateTo("/readme" , {state : blog})

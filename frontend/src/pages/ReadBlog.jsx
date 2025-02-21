@@ -46,8 +46,8 @@ const ReadBlog = () => {
         <NavBar></NavBar>
       </div>
       <br />
-      <hr />
-      <br />
+      {/* <hr />
+      <br /> */}
       <div className='h-screen bg-red-500 flex flex-wrap justify-center items-center overflow-y-auto scrollbar-hide'>
         <div className='h-[60%] w-[50%] rounded-3xl  bg-gray-300 flex justify-center items-center m-1'>
           image area
@@ -59,7 +59,7 @@ const ReadBlog = () => {
           <p className='text-xl font-bold'>category : {data.category}</p>
           {loggedInUser===data.username && 
           <div className='h-[15%] w-[90%] bg-amber-300 mt-10 flex justify-around items-center'>
-            <button className='h-[80%] w-[40%] bg-blue-500 rounded-2xl border-3 font-bold' onClick={handleUpdateBlog}>Update</button>
+            <button className='h-[80%] w-[40%] bg-blue-500 rounded-2xl border-3 font-bold cursor-pointer' onClick={handleUpdateBlog}>Update</button>
             <button className='h-[80%] w-[40%] bg-red-500 rounded-2xl border-3 font-bold cursor-pointer' onClick={handleDeleteBlog}>Delete</button>
           </div>
          }

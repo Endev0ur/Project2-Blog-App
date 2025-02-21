@@ -1,10 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const ProileDropdown = () => {
+
+  const navigateTo = useNavigate();
+
+  const handleProfile = () => {
+    navigateTo("/profile");
+  }
+
   return (
     <div className='h-[50vh] w-[20vw] bg-yellow-400 absolute top-20 right-20 mt-4 rounded-2xl p-6 flex justify-around items-center flex-wrap'>
 
-      <div className='h-[10%] w-[90%] pl-[10%] bg-amber-500 flex  items-center rounded-xl cursor-pointer border-b-4 hover:bg-lime-300 transition-all duration-200'>
+      <div className='h-[10%] w-[90%] pl-[10%] bg-amber-500 flex  items-center rounded-xl cursor-pointer border-b-4 hover:bg-lime-300 transition-all duration-200' onClick={handleProfile}>
         <h1 className='text-2xl font-bold'>Profile</h1>
       </div>
 
