@@ -65,12 +65,16 @@ const login = async (req, res) => {
       if(same){
 
         const jwttoken = jwt.sign({email:user.email , name:user.name , _id:user._id} , process.env.JWT_SECRET , {expiresIn:"24h"}) 
+        if(email==="adminShubhamUniyal@gmail.com"){
+          user.isAdmin = true;
+        }
 
         return res.status(201).json({
           message : "logged in successfull",
           jwttoken,
           success : true,
           name:user.name,
+          isAdmin:user.isAdmin,
         })
       }else{
         return res.status(401).json({

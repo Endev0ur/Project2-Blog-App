@@ -6,7 +6,22 @@ const ProileDropdown = () => {
   const navigateTo = useNavigate();
 
   const handleProfile = () => {
-    navigateTo("/profile");
+    const admin = localStorage.getItem("isAdmin");
+    console.log(admin);
+    if(admin==="false"){
+      navigateTo("/profile");
+    }else{
+      navigateTo("/admin");
+    }
+  }
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("id");
+    localStorage.removeItem("isAdmin")
+    
+    navigateTo("/login");
   }
 
   return (
@@ -33,7 +48,7 @@ const ProileDropdown = () => {
       </div>
 
       <div className='h-[15%] w-[90%]  bg-amber-500 flex  items-center rounded-xl justify-center'>
-        <button className={`h-[80%] w-[70%] bg-blue-500 hover:bg-red-500 transition-all duration-200 rounded-2xl cursor-pointer text-xl font-bold border-2` }>Logout</button>
+        <button className={`h-[80%] w-[70%] bg-blue-500 hover:bg-red-500 transition-all duration-200 rounded-2xl cursor-pointer text-xl font-bold border-2` } onClick={handleLogOut}>Logout</button>
       </div>
       
     </div>

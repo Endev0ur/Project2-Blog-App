@@ -40,12 +40,14 @@ const Login = () => {
     const result = await response.json();
     console.log(result);
 
-    const {message , success , jwttoken , name} = result;
+    const {message , success , jwttoken , name , isAdmin} = result;
 
     if(success){
 
       localStorage.setItem('token' , jwttoken);
       localStorage.setItem('loggedInUser' , name);
+      localStorage.setItem("isAdmin" , isAdmin);
+
 
       setTimeout(() => {
         navigateTo("/home");
