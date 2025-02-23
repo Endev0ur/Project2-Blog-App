@@ -26,35 +26,37 @@ const Login = () => {
     if(!email || !password){
       alert("All Fields are mandatory !");
     }
+    else{
+      const url = "http://localhost:3000/auth/login";
+      const response = await fetch(url , {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(logininfo),
+      })
 
-    const url = "http://localhost:3000/auth/login";
-    const response = await fetch(url , {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(logininfo),
-    })
+      console.log(response);
+      const result = await response.json();
+      console.log(result);
 
-    console.log(response);
-    const result = await response.json();
-    console.log(result);
+      const {message , success , jwttoken , name , isAdmin} = result;
 
-    const {message , success , jwttoken , name , isAdmin} = result;
+      if(success){
 
-    if(success){
-
-      localStorage.setItem('token' , jwttoken);
-      localStorage.setItem('loggedInUser' , name);
-      localStorage.setItem("isAdmin" , isAdmin);
+        localStorage.setItem('token' , jwttoken);
+        localStorage.setItem('loggedInUser' , name);
+        localStorage.setItem("isAdmin" , isAdmin);
 
 
-      setTimeout(() => {
-        navigateTo("/home");
-      },2000);
-    }else{
-      alert(message);
+        setTimeout(() => {
+          navigateTo("/home");
+        },2000);
+      }else{
+        alert(message);
+      }
     }
+    
 
   }
 

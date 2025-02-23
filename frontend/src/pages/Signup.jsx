@@ -29,27 +29,29 @@ const Signup = () => {
       alert("All Field are mandatory !");
     }
 
-    let url = "http://localhost:3000/auth/signup";
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(info),
-    });
+    else{
+      let url = "http://localhost:3000/auth/signup";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(info),
+      });
 
-    console.log(response);
-    const result = await response.json();
-    console.log(result);
+      console.log(response);
+      const result = await response.json();
+      console.log(result);
 
-    const {message , success} = result;
-    if(success){
-      setTimeout(() => {
-        navigateTo('/login');
-      },2000);
-    }else{
-      alert(message);
-    }
+      const {message , success} = result;
+      if(success){
+        setTimeout(() => {
+          navigateTo('/login');
+        },2000);
+      }else{
+        alert(message);
+      }
+  }
 
   }
 

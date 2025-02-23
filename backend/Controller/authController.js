@@ -118,4 +118,24 @@ const getUser = async (req , res) => {
 }
 
 
-module.exports = {signup , login , getUser};
+const getAllUser = async (req , res) => {
+  try{
+    const user = await userModel.find();
+    if(user){
+      res.status(201).json({
+        message : "user found successfully",
+        user,
+        success : true,
+      })
+    }
+  }catch(err){
+    res.status(500).json({
+      message : "internal server error",
+      err,
+      success : false,
+    })
+  }
+}
+
+
+module.exports = {signup , login , getUser , getAllUser};
