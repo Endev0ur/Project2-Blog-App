@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
 
@@ -99,8 +99,8 @@ const Login = () => {
       <br />
       <p>----------or----------</p>
       <br />
-      <div className="bg-amber-500 w-[100%] h-12 flex justify-center items-center ">
-        <button>Login with google</button>
+      <div className=" w-[100%] h-12 flex justify-center items-center ">
+        <p className="text-xl font-bold">Don't have an account ? <Link to="/signup" className="text-blue-500">Sign up</Link></p>
       </div>
     </form>
   );

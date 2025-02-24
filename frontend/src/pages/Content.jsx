@@ -37,7 +37,13 @@ const Content = () => {
   }, []);
 
   const handleCreateShortcut = () => {
-    navigateTo("/create");
+    let ans = localStorage.getItem("loggedInUser");
+    if(ans){
+      navigateTo("/create");
+    }else{
+      navigateTo("/home");
+    }
+    
   }
 
   console.log("hello");
