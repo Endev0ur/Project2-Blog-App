@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const CreateBlog = () => {
@@ -11,6 +11,9 @@ const CreateBlog = () => {
     category : "Choose a category",
     content : "",
   })
+
+
+  let [allCategories , setAllCategories] = useState([]);
 
   const handleChange = (e) => {
     const {name , value} = e.target;
@@ -52,6 +55,22 @@ const CreateBlog = () => {
     }
   }
 
+  useEffect(() => {
+    let fetchCategories = async () => {
+      let url = "http://localhost:3000/home/category/";
+      let response = await fetch(url);
+      console.log(response);
+      const result = await response.json();
+      console.log("dssfklsakdlfjkjsdfjlakjklfjskdajfklsdjkksdjalf");
+      console.log(result.categories);
+      let categoryarr = result.categories;
+      setAllCategories(categoryarr);
+    }
+    fetchCategories();
+
+  }, [])
+  
+
 
   return (
     <div className='h-[90%] w-[30%] bg-amber-400 p-5 rounded-4xl'>
@@ -80,11 +99,9 @@ const CreateBlog = () => {
           value={createBlog.category}
           >
               <option value="Choose a category">Choose a category : </option>
-              <option value="Movies">Movies</option>
-              <option value="Games">Games</option>
-              <option value="Sports">Sports</option>
-              <option value="Travel">Travel</option>
-              <option value="Business">Business</option>
+              {allCategories.map((category=>{
+                return <option value={category.name}>{category.name} </option>
+              }))}
           </select>
         </div>
         <div className='h-[50%] bg-pink-400 p-2 mb-6'>

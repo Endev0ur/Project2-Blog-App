@@ -27,7 +27,7 @@ const Login = () => {
       alert("All Fields are mandatory !");
     }
     else{
-      const url = "http://localhost:3000/auth/login";
+      const url = "http://192.168.29.193:3000/auth/login";
       const response = await fetch(url , {
         method: "POST",
         headers: {

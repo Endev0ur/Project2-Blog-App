@@ -113,7 +113,7 @@ const LeftBar = ({ catfilter , setCatFilter }) => {
             {allCategories.map((category , index)=>{
               return (
                 <div className="overflow-auto">
-                  <label className=" w-[90%] lg:text-xl rounded-4xl p-2 mr-3 cursor-pointer bg-white font-bold hover:bg-lime-500  transition-all duration-100 ease-in-out overflow-scroll scrollbar-hide flex items-center space-x-3 shadow-md shadow-gray-900">
+                  <label className=" w-[90%] lg:text-xl rounded-4xl p-2 mr-3 cursor-pointer bg-white font-bold hover:bg-lime-500  transition-all duration-100 ease-in-out overflow-scroll scrollbar-hide flex items-center space-x-3 shadowr-md shadow-gray-900">
                   <input
                     type="checkbox"
                     name={category.name}
