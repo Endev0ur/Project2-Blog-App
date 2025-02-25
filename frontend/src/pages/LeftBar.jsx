@@ -106,42 +106,42 @@ const LeftBar = ({ catfilter , setCatFilter }) => {
 
   return (
     <>
-      <div className="h-[85%] w-[100%] bg-amber-300">
+      <div className="h-[85%] w-[100%] bg-gray-400">
         <h1 className="text-2xl font-bold mt-4 ml-3">Categories : </h1>
-        <div className="mt-3 bg-blue-500 h-[92%] overflow-y-auto pr-4 scrollbar-hide">
+        <div className="mt-3 bg-gray-400 h-[92%] overflow-y-auto pr-4 scrollbar-hide border-b-2">
           <form action="" className="mt-3 ml-7 flex flex-col">
             {allCategories.map((category , index)=>{
               return (
-                <>
-                  <label className="block lg:text-xl rounded-4xl p-2 mr-3 cursor-pointer bg-gray-300 hover:bg-lime-300 transition-all duration-100 ease-in-out">
+                <div className="overflow-auto">
+                  <label className=" w-[90%] lg:text-xl rounded-4xl p-2 mr-3 cursor-pointer bg-white font-bold hover:bg-lime-500  transition-all duration-100 ease-in-out overflow-scroll scrollbar-hide flex items-center space-x-3 shadow-md shadow-gray-900">
                   <input
                     type="checkbox"
                     name={category.name}
                     key={index}
                     className="lg:h-4 lg:w-4  ml-5 cursor-pointer"
                     onClick={handleClick}
-                  />{" "}
-                  {category.name}
+                  />
+                  <span className="ml-1">{category.name}</span>
                 </label>
                 <br />
-               </>
+               </div>
               )
             })}
 
           </form>
         </div>
       </div>
-      <div className="h-[10%] w-[100%] bg-green-400 flex justify-center items-center relative z-50">
+      <div className="h-[10%] w-[100%] bg-purple-400 flex justify-center items-center relative z-50">
         
         {isAdmin==="true"?(<button
           to={"/login"}
-          className="h-[60%] w-[60%] bg-amber-300 rounded-4xl text-2xl font-bold cursor-pointer hover:h-[65%] hover:w-[65%] transition-all duration-600"
+          className="h-[60%] w-[60%] bg-lime-500 rounded-4xl text-2xl font-bold cursor-pointer hover:h-[65%] hover:w-[65%] transition-all duration-600 shadow-xl shadow-black"
           onClick={handleCreateCategory}
         >
           Catogory
         </button>):(<button
           to={"/login"}
-          className="h-[60%] w-[60%] bg-amber-300 rounded-4xl text-2xl font-bold cursor-pointer hover:h-[65%] hover:w-[65%] transition-all duration-600"
+          className="h-[60%] w-[60%] bg-red-600 text-white rounded-4xl text-2xl font-bold cursor-pointer hover:h-[65%] hover:w-[65%] transition-all duration-600 shadow-xl shadow-black"
           onClick={handleLogout}
         >
           Log out

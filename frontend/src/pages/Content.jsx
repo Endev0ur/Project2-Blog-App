@@ -19,7 +19,7 @@ const Content = () => {
 
   useEffect(() => {
     const fetchBlog = async () => {
-      let url = "http://localhost:3000/home/";
+      let url = "http://192.168.29.193:3000/home/";
       const response = await fetch(url);
       console.log(response);
       const result = await response.json();
@@ -52,10 +52,10 @@ const Content = () => {
 
   return (
     <div className="h-[100%] w-[100%] bg-green-300 flex items-center justify-center flex-wrap">
-      <div className="hidden lg:flex h-[99%] w-[20%] bg-blue-700 flex-wrap justify-center items-center ">
+      <div className="hidden lg:flex h-[99%] w-[20%] bg-gray-300 flex-wrap justify-center items-center ">
         <LeftBar catfilter={catfilter} setCatFilter={setCatFilter}></LeftBar>
       </div>
-      <div className="h-[99%] w-[99%] lg:w-[80%] xl:w-[65%] bg-pink-400 flex flex-wrap justify-items-center overflow-y-scroll scrollbar-hide relative">
+      <div className="h-[99%] w-[99%] lg:w-[80%] xl:w-[65%] pt-10 bg-red-500 flex flex-wrap lg:justify-start lg:items-start md:items-center justify-center items-center overflow-y-scroll scrollbar-hide relative">
         {catfilter.length===0 ? (AllBlogs.length != 0 ? (
           AllBlogs.map((blog) => {
             return <BlogTemplate blog={blog} />;
@@ -73,8 +73,8 @@ const Content = () => {
           })()
         )}
       </div>
-      <div className="hidden xl:flex h-[99%] w-[15%] bg-green-700 flex-wrap overflow-y-scroll justify-center scrollbar-hide">
-        <h1 className="text-xl font-bold mt-5">Recent Blogs : </h1>
+      <div className="hidden xl:flex h-[99%] w-[15%] bg-gray-500 flex-wrap overflow-y-scroll justify-center scrollbar-hide">
+        <h1 className="text-xl font-bold mt-5 text-white">Recent Blogs : </h1>
         { recentBlogs.length != 0 ? (
           recentBlogs.map((blog) => {
             return <RecentTemplate blog={blog} />;

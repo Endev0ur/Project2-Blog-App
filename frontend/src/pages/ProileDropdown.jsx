@@ -24,6 +24,8 @@ const ProileDropdown = () => {
     navigateTo("/login");
   }
 
+  
+
   return (
     <div className='h-[50vh] w-[20vw] bg-yellow-400 absolute top-20 right-20 mt-4 rounded-2xl p-6 flex justify-around items-center flex-wrap'>
 
@@ -50,6 +52,7 @@ const ProileDropdown = () => {
       <div className='h-[15%] w-[90%]  bg-amber-500 flex  items-center rounded-xl justify-center'>
         <button className={`h-[80%] w-[70%] bg-blue-500 hover:bg-red-500 transition-all duration-200 rounded-2xl cursor-pointer text-xl font-bold border-2` } onClick={handleLogOut}>Logout</button>
       </div>
+
       
     </div>
   )
